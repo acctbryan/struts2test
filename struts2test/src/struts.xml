@@ -2,13 +2,19 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 
- <!-- User session 是否失效 -->
+ <!--  -->
   <package name="default" extends="struts-default">
     <interceptors>
       <interceptor name="exception" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/>
+      <interceptor name="interceptora" class="mypkg.InterceptorA"/>
+      <interceptor name="interceptorb" class="mypkg.InterceptorB"/>
+      <interceptor name="interceptorc" class="mypkg.InterceptorC"/>
 
       <interceptor-stack name="authDefaultStack">
         <interceptor-ref name="exception"/>
+        <interceptor-ref name="interceptora"/>
+    	<interceptor-ref name="interceptorb"/>
+        <interceptor-ref name="interceptorc"/>
         <interceptor-ref name="defaultStack"/>
         <interceptor-ref name="fileUploadStack"/>
       </interceptor-stack>
@@ -39,7 +45,10 @@
   <!-- SSO -->
   <package name="sso" extends="default" >
     <action name="sso!*" class="mypkg.SSOAction" method="{1}">
-      <result name="view">/index.jsp</result>
+    	<result name="view">/login.jsp</result>
+    	<interceptor-ref name="interceptorb"/>
+    	<interceptor-ref name="interceptora"/>
+    	
     </action>
   </package>
 

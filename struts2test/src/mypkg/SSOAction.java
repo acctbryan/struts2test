@@ -1,6 +1,7 @@
 package mypkg;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.log4j.MDC;
 
 
 public class SSOAction extends BaseAction {
@@ -36,7 +37,10 @@ public class SSOAction extends BaseAction {
     
     public String login(){
     	log.info(ToStringBuilder.reflectionToString(this));
-    	res = "org: "+org+"name: "+name+", pwd: "+pwd;
+//    	MDC.put("org", org);
+//    	MDC.put("name", name);
+    	
+    	res = "org: "+org+", name: "+name+", pwd: "+pwd;
     	log.info(org);
     	log.info(name);
     	log.info(pwd);
@@ -44,7 +48,7 @@ public class SSOAction extends BaseAction {
     }
     public String logout(){
     	log.info(ToStringBuilder.reflectionToString(this));
-    	res = "logout";
+    	res = "logout[org: "+org+", name: "+name+", pwd: "+pwd+"]";
     	log.info(res);
     	return "view";
     }
