@@ -46,9 +46,6 @@
   <package name="sso" extends="default" >
     <action name="sso!*" class="mypkg.SSOAction" method="{1}">
     	<result name="view">/login.jsp</result>
-    	<interceptor-ref name="interceptorb"/>
-    	<interceptor-ref name="interceptora"/>
-    	
     </action>
   </package>
 

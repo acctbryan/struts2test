@@ -37,8 +37,8 @@ public class SSOAction extends BaseAction {
     
     public String login(){
     	log.info(ToStringBuilder.reflectionToString(this));
-//    	MDC.put("org", org);
-//    	MDC.put("name", name);
+    	MDC.put("org", org);
+    	MDC.put("name", name);
     	
     	res = "org: "+org+", name: "+name+", pwd: "+pwd;
     	log.info(org);
