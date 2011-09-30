@@ -10,7 +10,6 @@ public class InterceptorB extends BaseInterceptor {
 		String result = "";
 		log.info(result);
 		result = arg0.invoke();
-		log.info(result);
 		return result;
 	}
 
