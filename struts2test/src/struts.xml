@@ -45,6 +45,7 @@
   <!-- SSO -->
   <package name="sso" extends="default" >
     <action name="sso!*" class="mypkg.SSOAction" method="{1}">
+    	<interceptor-ref name="authDefaultStack"/>
     	<result name="view">/login.jsp</result>
     </action>
   </package>
