@@ -12,7 +12,9 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-
+/*
+ * base class
+ */
 public class BaseAction extends ActionSupport implements SessionAware,
         ServletRequestAware, ServletResponseAware {
 
